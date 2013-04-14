@@ -1,0 +1,68 @@
+@mixin webkit-moz-css3($k, $v) {
+  -webkit-#{$k}: $v;
+  -moz-#{$k}: $v;
+  #{$k}: $v;
+}
+
+@mixin border-radius($r) {
+  @include webkit-moz-css3(border-radius, $r);
+}
+
+@mixin box-shadow($v) {
+  @include webkit-moz-css3(box-shadow, $v);
+}
+
+@mixin gradient($from, $to, $start, $end) {
+  background: -moz-linear-gradient($from, $start 0%, $end 100%);
+  background: -webkit-linear-gradient($from, $start 0%, $end 100%);
+  background: -o-linear-gradient($from, $start 0%, $end 100%);
+  background: -ms-linear-gradient($from, $start 0%, $end 100%);
+  background: linear-gradient(to $to, $start 0%, $end 100%);
+}
+
+@mixin horizontal-gradient($start, $end) {
+  @include gradient(left, right, $start, $end);
+}
+
+@mixin vertical-gradient($start, $end) {
+  @include gradient(top, bottom, $start, $end);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: top center url(textures/candyhole.png);
+}
+
+$bodyWidth:       970px;
+$sidebarWidth:    250px;
+$sidebarPadding:  40px;
+
+.neil2013-body {
+  position: absolute;
+  z-index: 2;
+  width: $bodyWidth;
+  margin-left: $bodyWidth/-2;
+  left: 50%;
+}
+
+.neil2013-sidebar-bg {
+  background: top right url(textures/dark_leather.jpg);
+  position: absolute;
+  z-index: 1;
+  min-height: 100%;
+  height: 100%;
+  width: 50%;
+  margin-left: $bodyWidth/-2 + $sidebarWidth;
+
+  .neil2013-shadow {
+    position: absolute;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    @include horizontal-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
+  }
+}
