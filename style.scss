@@ -48,9 +48,12 @@ Version: 1.0
   font-size: 1em;
 }
 
+body, html {
+  height: 100%;
+}
+
 body {
   line-height: 1;
-  background: top center url(textures/candyhole.png);
   color: #fff;
 }
 
@@ -71,22 +74,33 @@ $bodyWidth:       970px;
 $sidebarWidth:    250px;
 $sidebarPadding:  40px;
 
-.n13-body {
-  position: absolute;
-  z-index: 2;
+.n13-background {
+  position: relative;
+  height: 100%;
+  min-width: $bodyWidth;
+  background: top center url(textures/candyhole.png);
+}
+
+.n13-container {
+  position: relative;
   width: $bodyWidth;
-  margin-left: $bodyWidth/-2;
-  left: 50%;
+  margin: 0 auto;
+}
+
+.n13-body {
+  z-index: 2;
+  position: absolute;
+  width: 100%;
 }
 
 .n13-sidebar-bg {
   background: top right url(textures/dark_leather.jpg);
   position: absolute;
   z-index: 1;
-  min-height: 100%;
   height: 100%;
-  width: 50%;
-  margin-left: $bodyWidth / -2 + $sidebarWidth;
+  width: 5000px;
+  right: $bodyWidth - $sidebarWidth;
+  top: 0;
 
   .n13-shadow {
     position: absolute;
@@ -120,9 +134,18 @@ nav.n13-sidebar {
     padding: 16px $sidebarPadding 16px 0;
     display: block;
 
+    &.n13-active {
+      background: right 20px no-repeat url(images/active-menu-item.gif);
+    }
+
     a {
       height: 18px;
       line-height: 1em;
+      color: #d4d4d4;
+
+      &:hover {
+        color: #fff;
+      }
     }
   }
 }

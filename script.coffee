@@ -4,13 +4,15 @@ $ = jQuery
 
 # sidebar background sizing
 
+containerStyle = null
 sidebarBgStyle = null
 
 docElem = document.documentElement
 
 fixSidebarBgHeight = ->
-  sidebarBgStyle.height = 'auto'
-  sidebarBgStyle.height = docElem.scrollHeight + 'px' if docElem.scrollHeight > docElem.clientHeight
+  containerStyle.height = '100%'
+  containerStyle.height = docElem.scrollHeight + 'px' if docElem.scrollHeight > docElem.clientHeight
+  sidebarBgStyle.width = Math.max(500, docElem.clientWidth / 2) + 'px'
   return
 
 $(window).on 'resize', fixSidebarBgHeight
@@ -23,6 +25,7 @@ $ ->
 
   # sidebar background sizing
 
+  containerStyle = $('.n13-container')[0].style
   sidebarBgStyle = $('.n13-sidebar-bg')[0].style
   fixSidebarBgHeight()
 

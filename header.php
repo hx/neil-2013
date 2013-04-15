@@ -32,8 +32,10 @@
     <![endif]-->
 </head>
 <body>
-    <div class="n13-body">
-        <h4><?php bloginfo() ?></h4>
-        <nav class="n13-sidebar">
-            <?php wp_nav_menu(['menu' => 'main-menu']) ?>
-        </nav>
+    <div class="n13-background">
+        <div class="n13-container">
+            <div class="n13-body">
+                <h4><?php bloginfo() ?></h4>
+                <nav class="n13-sidebar">
+                    <?php wp_nav_menu(['menu' => 'main-menu']) ?>
+                </nav>
