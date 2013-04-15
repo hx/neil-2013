@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,400italic);
 /*
 Theme Name: Neil 2013
 Theme URI: http://neil.hx.net.au
@@ -5,3 +6,86 @@ Author: Neil
 Author URI: http://neil.hx.net.au
 Version: 1.0
 */
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+}
+
+body {
+  line-height: 1;
+  background: top center url(textures/candyhole.png);
+  color: #fff;
+}
+
+a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+img {
+  border: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+.n13-body {
+  position: absolute;
+  z-index: 2;
+  width: 970px;
+  margin-left: -485px;
+  left: 50%;
+}
+
+.n13-sidebar-bg {
+  background: top right url(textures/dark_leather.jpg);
+  position: absolute;
+  z-index: 1;
+  min-height: 100%;
+  height: 100%;
+  width: 50%;
+  margin-left: -235px;
+}
+.n13-sidebar-bg .n13-shadow {
+  position: absolute;
+  right: 0;
+  width: 12px;
+  height: 100%;
+  background: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background: -o-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background: -ms-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+h4, .n13-sidebar {
+  float: left;
+  clear: both;
+  width: 210px;
+  text-align: right;
+  font: 300 italic 18px/1.2em Lato;
+  color: #ccc;
+}
+
+h4 {
+  font: 300 normal 26px/1em Lato;
+  padding: 30px 0 16px;
+  -webkit-text-shadow: 0 3px 3px black;
+  -moz-text-shadow: 0 3px 3px black;
+  text-shadow: 0 3px 3px black;
+}
+
+nav.n13-sidebar {
+  width: 250px;
+}
+nav.n13-sidebar li {
+  height: 18px;
+  padding: 16px 40px 16px 0;
+  display: block;
+}
+nav.n13-sidebar li a {
+  height: 18px;
+  line-height: 1em;
+}

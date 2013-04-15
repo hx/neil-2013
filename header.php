@@ -23,10 +23,17 @@
 
         ?></title>
     <meta charset="<?php bloginfo('charset'); ?>">
-    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/styles.css">
+    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
     <?php wp_enqueue_script("jquery"); ?>
     <?php wp_head(); ?>
     <script src="<?php bloginfo('template_url'); ?>/script.js"></script>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 </head>
 <body>
-    <div class="neil2013-body">
+    <div class="n13-body">
+        <h4><?php bloginfo() ?></h4>
+        <nav class="n13-sidebar">
+            <?php wp_nav_menu(['menu' => 'main-menu']) ?>
+        </nav>

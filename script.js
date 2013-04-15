@@ -15,11 +15,27 @@
     }
   };
 
-  $(function() {
-    sidebarBgStyle = $('.neil2013-sidebar-bg')[0].style;
-    fixSidebarBgHeight();
-  });
-
   $(window).on('resize', fixSidebarBgHeight);
+
+  $(function() {
+    var activeClass, activeUri;
+
+    sidebarBgStyle = $('.n13-sidebar-bg')[0].style;
+    fixSidebarBgHeight();
+    activeClass = 'n13-active';
+    activeUri = document.location.href.replace(/\?.*/, '').replace(/^\w+:\/\/|\/$/g, '');
+    console.log(activeUri);
+    $('.n13-body a').each(function() {
+      var $el, $parent;
+
+      if (this.href.replace(/^\w+:\/\/|\/$/g, '') === activeUri) {
+        $el = $(this).addClass(activeClass);
+        $parent = $el.parent();
+        if ($parent.is('li')) {
+          $parent.addClass(activeClass);
+        }
+      }
+    });
+  });
 
 }).call(this);
