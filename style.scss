@@ -7,6 +7,7 @@ Version: 1.0
 */
 
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,400italic);
+@import url(http://fonts.googleapis.com/css?family=Rokkitt:700);
 
 @mixin webkit-moz-css3($k, $v) {
   -webkit-#{$k}: $v;
@@ -74,6 +75,9 @@ $bodyWidth:       970px;
 $sidebarWidth:    250px;
 $sidebarPadding:  40px;
 
+$titleColor:      #0b795e;
+$subtitleColor:   #5b615d;
+
 .n13-background {
   position: relative;
   height: 100%;
@@ -116,7 +120,7 @@ h4, .n13-sidebar {
   clear: both;
   width: $sidebarWidth - $sidebarPadding;
   text-align: right;
-  font: 300 italic 18px/1.2em Lato;
+  font: 400 italic 18px/1.2em Lato;
   color: #ccc;
 }
 
@@ -143,9 +147,33 @@ nav.n13-sidebar {
       line-height: 1em;
       color: #d4d4d4;
 
-      &:hover {
+      &:hover, &.n13-active {
         color: #fff;
       }
     }
   }
+}
+
+h2, .n13-summary, .n13-sep {
+  width: $bodyWidth - $sidebarWidth - $sidebarPadding;
+  float: right;
+}
+
+h2 {
+  color: $titleColor;
+  font: 700 48px/1em Rokkitt;
+  @include text-shadow(0 1px 0 black);
+  padding: 12px 0;
+}
+
+.n13-summary {
+  color: $subtitleColor;
+  font: 400 italic 19px/25px Lato;
+  padding: 4px 0;
+}
+
+.n13-sep {
+  clear: both;
+  border-top: 1px solid #e6e0d7;
+  border-bottom: 1px solid white;
 }

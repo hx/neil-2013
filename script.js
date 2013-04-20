@@ -28,7 +28,6 @@
     fixSidebarBgHeight();
     activeClass = 'n13-active';
     activeUri = document.location.href.replace(/\?.*/, '').replace(/^\w+:\/\/|\/$/g, '');
-    console.log(activeUri);
     $('.n13-body a').each(function() {
       var $el, $parent;
 

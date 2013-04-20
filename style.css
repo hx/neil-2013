@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,400italic);
+@import url(http://fonts.googleapis.com/css?family=Rokkitt:700);
 /*
 Theme Name: Neil 2013
 Theme URI: http://neil.hx.net.au
@@ -79,7 +80,7 @@ h4, .n13-sidebar {
   clear: both;
   width: 210px;
   text-align: right;
-  font: 300 italic 18px/1.2em Lato;
+  font: 400 italic 18px/1.2em Lato;
   color: #ccc;
 }
 
@@ -107,6 +108,32 @@ nav.n13-sidebar li a {
   line-height: 1em;
   color: #d4d4d4;
 }
-nav.n13-sidebar li a:hover {
+nav.n13-sidebar li a:hover, nav.n13-sidebar li a.n13-active {
   color: #fff;
+}
+
+h2, .n13-summary, .n13-sep {
+  width: 680px;
+  float: right;
+}
+
+h2 {
+  color: #0b795e;
+  font: 700 48px/1em Rokkitt;
+  -webkit-text-shadow: 0 1px 0 black;
+  -moz-text-shadow: 0 1px 0 black;
+  text-shadow: 0 1px 0 black;
+  padding: 12px 0;
+}
+
+.n13-summary {
+  color: #5b615d;
+  font: 400 italic 19px/25px Lato;
+  padding: 4px 0;
+}
+
+.n13-sep {
+  clear: both;
+  border-top: 1px solid #e6e0d7;
+  border-bottom: 1px solid white;
 }
