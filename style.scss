@@ -332,3 +332,21 @@ input, textarea, a.submit {
     border-color: #bbb;
   }
 }
+
+.n13-footer {
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
+  width: 100%;
+  background: url(textures/retina_wood.png);
+  min-height: 190px;
+  clear: both;
+  @include border-radius(10px 10px 0 0);
+
+  .n13-footer-image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+  }
+}

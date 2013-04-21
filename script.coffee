@@ -23,6 +23,12 @@ $(window).on 'resize', fixSidebarBgHeight
 
 $ ->
 
+  #footer sizing
+
+  $('.n13-body')[0].style.paddingBottom = ($('.n13-footer')[0].offsetHeight + 20) + 'px'
+
+
+
   # sidebar background sizing
 
   containerStyle = $('.n13-background')[0].style

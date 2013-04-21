@@ -16,6 +16,21 @@ class Neil2013 {
             'rows'      => 4
         )));
 
+        $wpc->add_section('n13_footer_section', array(
+            'title'     => 'Footer',
+            'priority'  => 9999
+        ));
+
+        $wpc->add_setting('n13_footer_image', array(
+            'default'   => null
+        ));
+
+        $wpc->add_control(new WP_Customize_Image_Control($wpc, 'n13_footer_image', array(
+            'label'     => 'Footer Image',
+            'section'   => 'n13_footer_section'
+
+        )));
+
     }
 
     public static function excerptMore() {

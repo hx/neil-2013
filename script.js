@@ -23,6 +23,7 @@
   $(function() {
     var activeClass, activeUri, patterns, submit, validate;
 
+    $('.n13-body')[0].style.paddingBottom = ($('.n13-footer')[0].offsetHeight + 20) + 'px';
     containerStyle = $('.n13-background')[0].style;
     sidebarBgStyle = $('.n13-sidebar-bg')[0].style;
     fixSidebarBgHeight();
