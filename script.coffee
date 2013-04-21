@@ -33,7 +33,6 @@ $ ->
 
   containerStyle = $('.n13-background')[0].style
   sidebarBgStyle = $('.n13-sidebar-bg')[0].style
-  fixSidebarBgHeight()
 
 
 
@@ -107,4 +106,39 @@ $ ->
   # comment form validation
   $('form').on 'submit', validate
 
-  return
+
+  # on image load
+
+  maxWidth  = 680;
+  maxHeight = 500;
+
+  $('.n13-body .wp-caption a img').on 'load', (e) ->
+    img = $(e.target)
+    a = img.parent()
+    href = a.attr('href')
+    if /\.(jpe?g|gif|png|bmp|svg)$/i.exec(href)
+      originalWidth = img.width()
+      originalHeight = img.height()
+      a.append hiRes = $ '<img>',
+        src: href
+        class: 'hi-res'
+      if originalWidth/originalHeight > maxWidth/maxHeight
+        newWidth = maxWidth
+        newHeight = maxWidth * originalHeight/originalWidth
+      else
+        newHeight = maxHeight
+        newWidth = maxHeight * originalWidth/originalHeight
+      img.css
+        width:  newWidth  + 'px'
+        height: newHeight + 'px'
+      img.parents('.wp-caption').width newWidth
+
+      fixSidebarBgHeight()
+
+    return
+
+
+  fixSidebarBgHeight()
+
+
+return
