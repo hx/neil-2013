@@ -21,9 +21,9 @@
   $(window).on('resize', fixSidebarBgHeight);
 
   $(function() {
-    var activeClass, activeUri;
+    var activeClass, activeUri, patterns, submit, validate;
 
-    containerStyle = $('.n13-container')[0].style;
+    containerStyle = $('.n13-background')[0].style;
     sidebarBgStyle = $('.n13-sidebar-bg')[0].style;
     fixSidebarBgHeight();
     activeClass = 'n13-active';
@@ -42,6 +42,48 @@
     $('.n13-posts').on('click .article', function(e) {
       document.location = $(e.target).parents('article').find('h2 a').attr('href');
     });
+    $('#respond form > input').prependTo('#respond form p.form-submit');
+    submit = $('<form>')[0].submit;
+    $('input[type=submit]').each(function() {
+      var form, old;
+
+      old = $(this);
+      form = old.parents('form');
+      old.after($('<a>', {
+        href: 'javascript:',
+        text: old.val(),
+        "class": 'submit'
+      }).on('click', function() {
+        if (validate.call(form[0])) {
+          submit.call(form.append($('<input>', {
+            type: 'hidden',
+            name: old.attr('name'),
+            value: old.val()
+          }))[0]);
+        }
+      })).remove();
+    });
+    patterns = {
+      comment: /\w{5,}/,
+      author: /\w{2,}/,
+      email: /.+@.+\..+/
+    };
+    validate = function() {
+      var errors, id, pattern;
+
+      errors = [];
+      for (id in patterns) {
+        pattern = patterns[id];
+        if (this[id] && !pattern.exec(this[id].value)) {
+          errors.push("Value for " + this[id].placeholder + " is invalid.");
+        }
+      }
+      if (errors.length) {
+        alert(errors.join("\n"));
+      }
+      return !errors.length;
+    };
+    $('form').on('submit', validate);
   });
 
 }).call(this);

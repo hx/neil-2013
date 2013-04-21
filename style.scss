@@ -56,7 +56,7 @@ Version: 1.0
 * {
   margin: 0;
   padding: 0;
-  font-size: 1em;
+  font: inherit;
 }
 
 body, html {
@@ -66,6 +66,7 @@ body, html {
 body {
   line-height: 1;
   color: #0f0;
+  font: 18px/1em Lato;
 }
 
 a {
@@ -87,15 +88,16 @@ $sidebarPadding:  40px;
 
 $titleColor:      #0b795e;
 $subtitleColor:   #5b615d;
+$textColor:       #393939;
 
 .n13-background {
   position: relative;
-  height: 100%;
   min-width: $bodyWidth;
   background: top center url(textures/candyhole.png);
 }
 
 .n13-container {
+  height: 100%;
   position: relative;
   width: $bodyWidth;
   margin: 0 auto;
@@ -125,12 +127,13 @@ $subtitleColor:   #5b615d;
   }
 }
 
-h4, .n13-sidebar, .n13-posts .date {
+h4, .n13-sidebar, .n13-posts .date, h5 {
   float: left;
   clear: both;
   width: $sidebarWidth - $sidebarPadding;
   text-align: right;
   font: 400 italic 18px/1.2em Lato;
+  @include text-shadow(0 2px 2px black);
 }
 
 h4 {
@@ -170,7 +173,16 @@ nav.n13-sidebar {
   }
 }
 
-h2, .n13-summary, .n13-sep, h1, .excerpt, .n13-post .content, .n13-post .date {
+h2,
+.n13-summary,
+.n13-sep,
+h1,
+.excerpt,
+.n13-post
+.content,
+.n13-post .date,
+.n13-comments ul,
+#respond {
   width: $bodyWidth - $sidebarWidth - $sidebarPadding;
   float: right;
 }
@@ -230,7 +242,7 @@ h2, h2 a {
 }
 
 .excerpt, .n13-post .content {
-  color: #393939;
+  color: $textColor;
   font: 400 normal 20px/1.3em Kreon;
 
   p {
@@ -244,3 +256,79 @@ h2, h2 a {
   clear: both;
 }
 
+.n13-comments {
+  clear: both;
+  padding-top: 1em;
+
+  h5 {
+    color: #fff;
+  }
+
+  li {
+    margin-bottom: 1.8em;
+  }
+
+  blockquote {
+    padding-bottom: 10px;
+    color: #666;
+  }
+
+  blockquote, textarea {
+    font: 400 normal 18px/22px Kreon;
+  }
+
+  cite {
+    font: 400 normal 14px/16px Lato;
+    color: $titleColor;
+  }
+
+  textarea {
+    margin-bottom: 10px;
+    width: 554px;
+    height: 90px;
+    padding: 6px 9px;
+    color: $textColor;
+  }
+
+  input, a.submit {
+    font: 400 normal 14px/1em Lato;
+    color: $textColor;
+    padding: 1px 2px;
+    width: 210px;
+    margin-right: 12px;
+    height: 18px;
+    display: block;
+    float: left;
+    line-height: 14px;
+  }
+
+  a.submit {
+    text-align: center;
+    color: #fff;
+    background: #6b6b6b;
+    @include vertical-gradient(#7e7e7e, #5a5a5a);
+    width: 115px;
+    margin-right: 0;
+    border: none;
+    padding: 3px 2px 1px;
+    @include transition(duration, 200ms);
+    @include transition(property, color background);
+
+    &:hover {
+      @include vertical-gradient(#cdcdcd, #aaaaaa);
+      color: #000;
+      @include text-shadow(0 1px 0 rgba(255, 255, 255, .3));
+    }
+  }
+}
+
+input, textarea, a.submit {
+  border: 1px solid #e6e6e6;
+  background: rgba(255, 255, 255, .4);
+  @include border-radius(5px);
+  @include transition(duration, 300ms);
+  @include transition(property, border-color);
+  &:hover, &:active {
+    border-color: #bbb;
+  }
+}

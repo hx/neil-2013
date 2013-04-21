@@ -11,7 +11,7 @@ Version: 1.0
 * {
   margin: 0;
   padding: 0;
-  font-size: 1em;
+  font: inherit;
 }
 
 body, html {
@@ -21,6 +21,7 @@ body, html {
 body {
   line-height: 1;
   color: #0f0;
+  font: 18px/1em Lato;
 }
 
 a {
@@ -38,12 +39,12 @@ ul, ol {
 
 .n13-background {
   position: relative;
-  height: 100%;
   min-width: 970px;
   background: top center url(textures/candyhole.png);
 }
 
 .n13-container {
+  height: 100%;
   position: relative;
   width: 970px;
   margin: 0 auto;
@@ -76,12 +77,15 @@ ul, ol {
   background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 
-h4, .n13-sidebar, .n13-posts .date {
+h4, .n13-sidebar, .n13-posts .date, h5 {
   float: left;
   clear: both;
   width: 210px;
   text-align: right;
   font: 400 italic 18px/1.2em Lato;
+  -webkit-text-shadow: 0 2px 2px black;
+  -moz-text-shadow: 0 2px 2px black;
+  text-shadow: 0 2px 2px black;
 }
 
 h4 {
@@ -124,7 +128,16 @@ nav.n13-sidebar li a:hover {
   padding-right: 3px;
 }
 
-h2, .n13-summary, .n13-sep, h1, .excerpt, .n13-post .content, .n13-post .date {
+h2,
+.n13-summary,
+.n13-sep,
+h1,
+.excerpt,
+.n13-post
+.content,
+.n13-post .date,
+.n13-comments ul,
+#respond {
   width: 680px;
   float: right;
 }
@@ -198,4 +211,96 @@ h2, h2 a {
   height: 0;
   overflow: hidden;
   clear: both;
+}
+
+.n13-comments {
+  clear: both;
+  padding-top: 1em;
+}
+.n13-comments h5 {
+  color: #fff;
+}
+.n13-comments li {
+  margin-bottom: 1.8em;
+}
+.n13-comments blockquote {
+  padding-bottom: 10px;
+  color: #666;
+}
+.n13-comments blockquote, .n13-comments textarea {
+  font: 400 normal 18px/22px Kreon;
+}
+.n13-comments cite {
+  font: 400 normal 14px/16px Lato;
+  color: #0b795e;
+}
+.n13-comments textarea {
+  margin-bottom: 10px;
+  width: 554px;
+  height: 90px;
+  padding: 6px 9px;
+  color: #393939;
+}
+.n13-comments input, .n13-comments a.submit {
+  font: 400 normal 14px/1em Lato;
+  color: #393939;
+  padding: 1px 2px;
+  width: 210px;
+  margin-right: 12px;
+  height: 18px;
+  display: block;
+  float: left;
+  line-height: 14px;
+}
+.n13-comments a.submit {
+  text-align: center;
+  color: #fff;
+  background: #6b6b6b;
+  background: -moz-linear-gradient(top, #7e7e7e 0%, #5a5a5a 100%);
+  background: -webkit-linear-gradient(top, #7e7e7e 0%, #5a5a5a 100%);
+  background: -o-linear-gradient(top, #7e7e7e 0%, #5a5a5a 100%);
+  background: -ms-linear-gradient(top, #7e7e7e 0%, #5a5a5a 100%);
+  background: linear-gradient(to bottom, #7e7e7e 0%, #5a5a5a 100%);
+  width: 115px;
+  margin-right: 0;
+  border: none;
+  padding: 3px 2px 1px;
+  -o-transition-duration: 200ms;
+  -webkit-transition-duration: 200ms;
+  -moz-transition-duration: 200ms;
+  transition-duration: 200ms;
+  -o-transition-property: color background;
+  -webkit-transition-property: color background;
+  -moz-transition-property: color background;
+  transition-property: color background;
+}
+.n13-comments a.submit:hover {
+  background: -moz-linear-gradient(top, #cdcdcd 0%, #aaaaaa 100%);
+  background: -webkit-linear-gradient(top, #cdcdcd 0%, #aaaaaa 100%);
+  background: -o-linear-gradient(top, #cdcdcd 0%, #aaaaaa 100%);
+  background: -ms-linear-gradient(top, #cdcdcd 0%, #aaaaaa 100%);
+  background: linear-gradient(to bottom, #cdcdcd 0%, #aaaaaa 100%);
+  color: #000;
+  -webkit-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+  -moz-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+input, textarea, a.submit {
+  border: 1px solid #e6e6e6;
+  background: rgba(255, 255, 255, 0.4);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -o-transition-duration: 300ms;
+  -webkit-transition-duration: 300ms;
+  -moz-transition-duration: 300ms;
+  transition-duration: 300ms;
+  -o-transition-property: border-color;
+  -webkit-transition-property: border-color;
+  -moz-transition-property: border-color;
+  transition-property: border-color;
+}
+input:hover, input:active, textarea:hover, textarea:active, a.submit:hover, a.submit:active {
+  border-color: #bbb;
 }

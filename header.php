@@ -27,6 +27,7 @@
     <?php wp_enqueue_script("jquery"); ?>
     <?php wp_head(); ?>
     <script src="<?php bloginfo('template_url'); ?>/script.js"></script>
+    <script src="<?php bloginfo('template_url') ?>/vendor/jquery.placeholder.min.js"></script>
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -37,5 +38,5 @@
             <div class="n13-body">
                 <h4><?php bloginfo() ?></h4>
                 <nav class="n13-sidebar">
-                    <?php wp_nav_menu(['menu' => 'main-menu']) ?>
+                    <?php wp_nav_menu(array('menu' => 'main-menu')) ?>
                 </nav>
