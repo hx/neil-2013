@@ -8,11 +8,21 @@ Version: 1.0
 
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,400italic);
 @import url(http://fonts.googleapis.com/css?family=Rokkitt:700);
+@import url(http://fonts.googleapis.com/css?family=Kreon);
 
 @mixin webkit-moz-css3($k, $v) {
   -webkit-#{$k}: $v;
   -moz-#{$k}: $v;
   #{$k}: $v;
+}
+
+@mixin webkit-moz-o-css3($k, $v) {
+  -o-#{$k}: $v;
+  @include webkit-moz-css3($k, $v);
+}
+
+@mixin transition($k, $v) {
+  @include webkit-moz-o-css3(transition-#{$k}, $v);
 }
 
 @mixin border-radius($r) {
@@ -55,7 +65,7 @@ body, html {
 
 body {
   line-height: 1;
-  color: #fff;
+  color: #0f0;
 }
 
 a {
@@ -115,19 +125,19 @@ $subtitleColor:   #5b615d;
   }
 }
 
-h4, .n13-sidebar {
+h4, .n13-sidebar, .n13-posts .date {
   float: left;
   clear: both;
   width: $sidebarWidth - $sidebarPadding;
   text-align: right;
   font: 400 italic 18px/1.2em Lato;
-  color: #ccc;
 }
 
 h4 {
   font: 300 normal 26px/1em Lato;
   padding: 30px 0 16px;
   @include text-shadow(0 3px 3px #000);
+  color: #fff;
 }
 
 nav.n13-sidebar {
@@ -146,30 +156,37 @@ nav.n13-sidebar {
       height: 18px;
       line-height: 1em;
       color: #d4d4d4;
+      @include transition(duration, 300ms);
+      @include transition(property, color padding);
 
       &:hover, &.n13-active {
         color: #fff;
+      }
+
+      &:hover {
+        padding-right: 3px;
       }
     }
   }
 }
 
-h2, .n13-summary, .n13-sep {
+h2, .n13-summary, .n13-sep, h1, .excerpt, .n13-post .content, .n13-post .date {
   width: $bodyWidth - $sidebarWidth - $sidebarPadding;
   float: right;
 }
 
-h2 {
+h1 {
   color: $titleColor;
   font: 700 48px/1em Rokkitt;
   @include text-shadow(0 1px 0 black);
   padding: 12px 0;
 }
 
-.n13-summary {
+.n13-summary, .n13-post .date {
   color: $subtitleColor;
   font: 400 italic 19px/25px Lato;
   padding: 4px 0;
+  margin-bottom: 25px;
 }
 
 .n13-sep {
@@ -177,3 +194,53 @@ h2 {
   border-top: 1px solid #e6e0d7;
   border-bottom: 1px solid white;
 }
+
+.n13-posts .date {
+  color: #fff;
+  clear: left;
+  margin-top: 36px;
+}
+
+h2, h2 a {
+  color: $titleColor;
+  font: 400 italic 36px/40px Lato;
+  letter-spacing: -1.5px;
+  padding: 27px 0 4px;
+}
+
+.n13-posts article {
+  clear: both;
+  cursor: pointer;
+
+  .excerpt {
+    padding-bottom: 10px;
+  }
+
+  h2, .excerpt {
+    padding-left: $sidebarPadding;
+    @include transition(duration, 600ms);
+    @include transition(property, background);
+  }
+
+  &:hover {
+    h2, .excerpt {
+      background: rgba(187, 215, 0, .06);
+    }
+  }
+}
+
+.excerpt, .n13-post .content {
+  color: #393939;
+  font: 400 normal 20px/1.3em Kreon;
+
+  p {
+    margin: 1em 0;
+  }
+}
+
+.n13-clear-floats {
+  height: 0;
+  overflow: hidden;
+  clear: both;
+}
+

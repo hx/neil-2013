@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,400italic);
 @import url(http://fonts.googleapis.com/css?family=Rokkitt:700);
+@import url(http://fonts.googleapis.com/css?family=Kreon);
 /*
 Theme Name: Neil 2013
 Theme URI: http://neil.hx.net.au
@@ -19,7 +20,7 @@ body, html {
 
 body {
   line-height: 1;
-  color: #fff;
+  color: #0f0;
 }
 
 a {
@@ -75,13 +76,12 @@ ul, ol {
   background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 
-h4, .n13-sidebar {
+h4, .n13-sidebar, .n13-posts .date {
   float: left;
   clear: both;
   width: 210px;
   text-align: right;
   font: 400 italic 18px/1.2em Lato;
-  color: #ccc;
 }
 
 h4 {
@@ -90,6 +90,7 @@ h4 {
   -webkit-text-shadow: 0 3px 3px black;
   -moz-text-shadow: 0 3px 3px black;
   text-shadow: 0 3px 3px black;
+  color: #fff;
 }
 
 nav.n13-sidebar {
@@ -107,17 +108,28 @@ nav.n13-sidebar li a {
   height: 18px;
   line-height: 1em;
   color: #d4d4d4;
+  -o-transition-duration: 300ms;
+  -webkit-transition-duration: 300ms;
+  -moz-transition-duration: 300ms;
+  transition-duration: 300ms;
+  -o-transition-property: color padding;
+  -webkit-transition-property: color padding;
+  -moz-transition-property: color padding;
+  transition-property: color padding;
 }
 nav.n13-sidebar li a:hover, nav.n13-sidebar li a.n13-active {
   color: #fff;
 }
+nav.n13-sidebar li a:hover {
+  padding-right: 3px;
+}
 
-h2, .n13-summary, .n13-sep {
+h2, .n13-summary, .n13-sep, h1, .excerpt, .n13-post .content, .n13-post .date {
   width: 680px;
   float: right;
 }
 
-h2 {
+h1 {
   color: #0b795e;
   font: 700 48px/1em Rokkitt;
   -webkit-text-shadow: 0 1px 0 black;
@@ -126,14 +138,64 @@ h2 {
   padding: 12px 0;
 }
 
-.n13-summary {
+.n13-summary, .n13-post .date {
   color: #5b615d;
   font: 400 italic 19px/25px Lato;
   padding: 4px 0;
+  margin-bottom: 25px;
 }
 
 .n13-sep {
   clear: both;
   border-top: 1px solid #e6e0d7;
   border-bottom: 1px solid white;
+}
+
+.n13-posts .date {
+  color: #fff;
+  clear: left;
+  margin-top: 36px;
+}
+
+h2, h2 a {
+  color: #0b795e;
+  font: 400 italic 36px/40px Lato;
+  letter-spacing: -1.5px;
+  padding: 27px 0 4px;
+}
+
+.n13-posts article {
+  clear: both;
+  cursor: pointer;
+}
+.n13-posts article .excerpt {
+  padding-bottom: 10px;
+}
+.n13-posts article h2, .n13-posts article .excerpt {
+  padding-left: 40px;
+  -o-transition-duration: 600ms;
+  -webkit-transition-duration: 600ms;
+  -moz-transition-duration: 600ms;
+  transition-duration: 600ms;
+  -o-transition-property: background;
+  -webkit-transition-property: background;
+  -moz-transition-property: background;
+  transition-property: background;
+}
+.n13-posts article:hover h2, .n13-posts article:hover .excerpt {
+  background: rgba(187, 215, 0, 0.06);
+}
+
+.excerpt, .n13-post .content {
+  color: #393939;
+  font: 400 normal 20px/1.3em Kreon;
+}
+.excerpt p, .n13-post .content p {
+  margin: 1em 0;
+}
+
+.n13-clear-floats {
+  height: 0;
+  overflow: hidden;
+  clear: both;
 }

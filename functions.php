@@ -18,6 +18,10 @@ class Neil2013 {
 
     }
 
+    public static function excerptMore() {
+        return '&hellip;';
+    }
+
 }
 
 add_action('customize_register', array('Neil2013', 'customSettings'));
@@ -25,3 +29,5 @@ add_action('customize_register', array('Neil2013', 'customSettings'));
 add_theme_support('menus');
 
 register_nav_menu('main-menu', 'Main Sidebar Menu');
+
+add_filter('excerpt_more', array('Neil2013', 'excerptMore'));

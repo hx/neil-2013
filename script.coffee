@@ -43,4 +43,12 @@ $ ->
       $parent.addClass activeClass if $parent.is('li')
     return
 
+
+
+  # make article summaries clickable
+
+  $('.n13-posts').on 'click .article', (e) ->
+    document.location = $(e.target).parents('article').find('h2 a').attr('href')
+    return
+
   return

@@ -39,6 +39,9 @@
         }
       }
     });
+    $('.n13-posts').on('click .article', function(e) {
+      document.location = $(e.target).parents('article').find('h2 a').attr('href');
+    });
   });
 
 }).call(this);
