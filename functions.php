@@ -96,9 +96,38 @@ class Neil2013 {
         );
     }
 
+    public static function addMetaBoxes() {
+        add_meta_box('n13-meta', 'Neil 2013', array(__CLASS__, 'renderMetaBox'), 'page', 'side', 'high');
+    }
+
+    public static function renderMetaBox() {
+        global $post;
+        $file = __DIR__ . "/admin/{$post->post_type}-meta.php";
+        if(is_file($file)) {
+            include $file;
+        }
+    }
+
+    public static function onSavePost($post_id, $post) {
+        if(current_user_can('edit_post', $post_id)) {
+            foreach($_POST as $k => $i) {
+                if(substr($k, 0, 4) === 'n13-') {
+                    update_post_meta($post_id, $k, $i);
+                }
+            }
+        }
+    }
+
+    public static function init() {
+        add_post_type_support('page', 'excerpt');
+    }
+
 }
 
 add_action('customize_register', array('Neil2013', 'customSettings'));
+add_action('add_meta_boxes', array('Neil2013', 'addMetaBoxes'));
+add_action('save_post', array('Neil2013', 'onSavePost'), 1, 2);
+add_action('init', array('Neil2013', 'init'));
 
 add_theme_support('menus');
 

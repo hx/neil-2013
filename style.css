@@ -243,6 +243,18 @@ h2, h2 a {
   font-style: italic;
   padding-left: 1em;
 }
+.excerpt h3, .n13-post .content h3, .n13-page .content h3 {
+  position: absolute;
+  left: 0;
+  width: 210px;
+  text-align: right;
+  font: 400 italic 18px/1.2em Lato;
+  -webkit-text-shadow: 0 2px 2px black;
+  -moz-text-shadow: 0 2px 2px black;
+  text-shadow: 0 2px 2px black;
+  color: #fff;
+  padding-top: 21px;
+}
 
 .n13-clear-floats {
   height: 0;

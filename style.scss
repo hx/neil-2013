@@ -127,13 +127,17 @@ $textColor:       #393939;
   }
 }
 
-h4, .n13-sidebar, .n13-posts .date, h5 {
-  float: left;
-  clear: both;
+@mixin sidebarLabel {
   width: $sidebarWidth - $sidebarPadding;
   text-align: right;
   font: 400 italic 18px/1.2em Lato;
   @include text-shadow(0 2px 2px black);
+}
+
+h4, .n13-sidebar, .n13-posts .date, h5 {
+  float: left;
+  clear: both;
+  @include sidebarLabel;
 }
 
 h4 {
@@ -293,6 +297,14 @@ h2, h2 a {
   blockquote {
     font-style: italic;
     padding-left: 1em;
+  }
+
+  h3 {
+    position: absolute;
+    left: 0;
+    @include sidebarLabel;
+    color: #fff;
+    padding-top: 21px;
   }
 }
 
