@@ -36,7 +36,7 @@
     <div class="n13-background">
         <div class="n13-container">
             <div class="n13-body">
-                <h4><?php bloginfo() ?></h4>
+                <h4><a href="<?php echo site_url() ?>" title="<?php echo get_bloginfo() ?>"><?php bloginfo() ?></a></h4>
                 <nav class="n13-sidebar">
                     <?php wp_nav_menu(array('menu' => 'main-menu')) ?>
                 </nav>

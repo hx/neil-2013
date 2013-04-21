@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,400italic);
 @import url(http://fonts.googleapis.com/css?family=Rokkitt:700);
-@import url(http://fonts.googleapis.com/css?family=Kreon);
+@import url(http://fonts.googleapis.com/css?family=Kreon:400,700);
 /*
 Theme Name: Neil 2013
 Theme URI: http://neil.hx.net.au
@@ -94,6 +94,8 @@ h4 {
   -webkit-text-shadow: 0 3px 3px black;
   -moz-text-shadow: 0 3px 3px black;
   text-shadow: 0 3px 3px black;
+}
+h4 a {
   color: #fff;
 }
 
@@ -116,16 +118,13 @@ nav.n13-sidebar li a {
   -webkit-transition-duration: 300ms;
   -moz-transition-duration: 300ms;
   transition-duration: 300ms;
-  -o-transition-property: color padding;
-  -webkit-transition-property: color padding;
-  -moz-transition-property: color padding;
-  transition-property: color padding;
+  -o-transition-property: color;
+  -webkit-transition-property: color;
+  -moz-transition-property: color;
+  transition-property: color;
 }
 nav.n13-sidebar li a:hover, nav.n13-sidebar li a.n13-active {
   color: #fff;
-}
-nav.n13-sidebar li a:hover {
-  padding-right: 3px;
 }
 
 h2,
@@ -137,7 +136,8 @@ h1,
 .content,
 .n13-post .date,
 .n13-comments ul,
-#respond {
+#respond,
+.n13-copyright {
   width: 680px;
   float: right;
 }
@@ -296,10 +296,10 @@ input, textarea, a.submit {
   -webkit-transition-duration: 300ms;
   -moz-transition-duration: 300ms;
   transition-duration: 300ms;
-  -o-transition-property: border-color;
-  -webkit-transition-property: border-color;
-  -moz-transition-property: border-color;
-  transition-property: border-color;
+  -o-transition-property: color;
+  -webkit-transition-property: color;
+  -moz-transition-property: color;
+  transition-property: color;
 }
 input:hover, input:active, textarea:hover, textarea:active, a.submit:hover, a.submit:active {
   border-color: #bbb;
@@ -309,7 +309,8 @@ input:hover, input:active, textarea:hover, textarea:active, a.submit:hover, a.su
   position: absolute;
   bottom: 0;
   z-index: 3;
-  width: 100%;
+  width: 770px;
+  padding-left: 200px;
   background: url(textures/retina_wood.png);
   min-height: 190px;
   clear: both;
@@ -322,4 +323,61 @@ input:hover, input:active, textarea:hover, textarea:active, a.submit:hover, a.su
   bottom: 0;
   left: 0;
   z-index: 4;
+}
+.n13-footer li.n13-widget {
+  width: 144px;
+  float: left;
+  margin-right: 15px;
+}
+.n13-footer li.n13-widget h6 {
+  margin-top: 25px;
+  font: 700 normal 19px/1em Kreon;
+  -webkit-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+  -moz-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+  margin-bottom: 9px;
+}
+.n13-footer li.n13-widget h6, .n13-footer li.n13-widget h6 a {
+  color: #574129;
+}
+.n13-footer li.n13-widget .tweet-date a, .n13-footer li.n13-widget .menu a {
+  font: 400 normal 13px/20px Lato;
+  color: #392317;
+  -webkit-text-shadow: 0 1px 0 white;
+  -moz-text-shadow: 0 1px 0 white;
+  text-shadow: 0 1px 0 white;
+  -o-transition-duration: 300ms;
+  -webkit-transition-duration: 300ms;
+  -moz-transition-duration: 300ms;
+  transition-duration: 300ms;
+  -o-transition-property: color;
+  -webkit-transition-property: color;
+  -moz-transition-property: color;
+  transition-property: color;
+}
+.n13-footer li.n13-widget .tweet-date a:hover, .n13-footer li.n13-widget .menu a:hover {
+  color: #851503;
+}
+.n13-footer li.n13-widget .tweet-date {
+  margin-top: 10px;
+}
+.n13-footer li.n13-widget .tweet-date a {
+  color: #7e6142;
+  -webkit-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  -moz-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+.n13-footer li.n13-widget .tweet-content {
+  font: 400 italic 18px/21px Lato;
+  color: #442f28;
+}
+.n13-footer li.n13-widget.tweet {
+  width: 277px;
+}
+
+.n13-copyright {
+  color: #aaa;
+  font-size: 12px;
+  padding-top: 12px;
+  clear: both;
 }

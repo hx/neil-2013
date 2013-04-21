@@ -88,6 +88,14 @@ class Neil2013 {
         return false;
     }
 
+    public static function detectUrls($plainText) {
+        return preg_replace('`\b((?:https?|ftp|file)://|www\.|ftp\.)
+                ((?:\([-A-Z0-9+&@#/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#/%=~_|$?!:,.])*)
+                (\([-A-Z0-9+&@#/%=~_|$?!:,.]*\)|[A-Z0-9+&@#/%=~_|$])`xi', '<a href="$0">$2$3</a>',
+            $plainText
+        );
+    }
+
 }
 
 add_action('customize_register', array('Neil2013', 'customSettings'));
@@ -97,3 +105,14 @@ add_theme_support('menus');
 register_nav_menu('main-menu', 'Main Sidebar Menu');
 
 add_filter('excerpt_more', array('Neil2013', 'excerptMore'));
+
+register_sidebar(array(
+    'name'          => 'Footer',
+    'id'            => 'n13_footer_widgets',
+    'description'   => 'Widgets for the Neil 2013 footer',
+    'before_widget' => '<li id="%1$s" class="n13-widget %2$s">',
+    'after_widget'  => "</li>",
+    'before_title'  => '<h6 class="n13-widget-title">',
+    'after_title'   => '</h6>',
+) );
+

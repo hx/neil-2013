@@ -8,7 +8,7 @@ Version: 1.0
 
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,400italic);
 @import url(http://fonts.googleapis.com/css?family=Rokkitt:700);
-@import url(http://fonts.googleapis.com/css?family=Kreon);
+@import url(http://fonts.googleapis.com/css?family=Kreon:400,700);
 
 @mixin webkit-moz-css3($k, $v) {
   -webkit-#{$k}: $v;
@@ -140,7 +140,9 @@ h4 {
   font: 300 normal 26px/1em Lato;
   padding: 30px 0 16px;
   @include text-shadow(0 3px 3px #000);
-  color: #fff;
+  a {
+    color: #fff;
+  }
 }
 
 nav.n13-sidebar {
@@ -160,15 +162,12 @@ nav.n13-sidebar {
       line-height: 1em;
       color: #d4d4d4;
       @include transition(duration, 300ms);
-      @include transition(property, color padding);
+      @include transition(property, color);
 
       &:hover, &.n13-active {
         color: #fff;
       }
 
-      &:hover {
-        padding-right: 3px;
-      }
     }
   }
 }
@@ -182,7 +181,8 @@ h1,
 .content,
 .n13-post .date,
 .n13-comments ul,
-#respond {
+#respond,
+.n13-copyright {
   width: $bodyWidth - $sidebarWidth - $sidebarPadding;
   float: right;
 }
@@ -327,17 +327,20 @@ input, textarea, a.submit {
   background: rgba(255, 255, 255, .4);
   @include border-radius(5px);
   @include transition(duration, 300ms);
-  @include transition(property, border-color);
+  @include transition(property, color);
   &:hover, &:active {
     border-color: #bbb;
   }
 }
 
+$footerImageWidth: 200px;
+
 .n13-footer {
   position: absolute;
   bottom: 0;
   z-index: 3;
-  width: 100%;
+  width: $bodyWidth - $footerImageWidth;
+  padding-left: $footerImageWidth;
   background: url(textures/retina_wood.png);
   min-height: 190px;
   clear: both;
@@ -349,4 +352,57 @@ input, textarea, a.submit {
     left: 0;
     z-index: 4;
   }
+
+  li.n13-widget {
+    width: 144px;
+    float: left;
+    margin-right: 15px;
+
+    h6 {
+      margin-top: 25px;
+      font: 700 normal 19px/1em Kreon;
+      @include text-shadow(0 1px 0 rgba(255, 255, 255, .85));
+      margin-bottom: 9px;
+
+      &, a {
+        color: #574129;
+      }
+    }
+
+    .tweet-date a, .menu a {
+      font: 400 normal 13px/20px Lato;
+      color: #392317;
+      @include text-shadow(0 1px 0 #fff);
+      @include transition(duration, 300ms);
+      @include transition(property, color);
+
+      &:hover {
+        color: #851503;
+      }
+    }
+
+    .tweet-date {
+      margin-top: 10px;
+      a {
+        color: #7e6142;
+        @include text-shadow(0 1px 0 rgba(255, 255, 255, .8));
+      }
+    }
+
+    .tweet-content {
+      font: 400 italic 18px/21px Lato;
+      color: #442f28;
+    }
+
+    &.tweet {
+      width: 277px;
+    }
+  }
+}
+
+.n13-copyright {
+  color: #aaa;
+  font-size: 12px;
+  padding-top: 12px;
+  clear: both;
 }
