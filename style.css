@@ -164,6 +164,7 @@ h1 {
   clear: both;
   border-top: 1px solid #e6e0d7;
   border-bottom: 1px solid white;
+  height: 0;
 }
 
 .n13-posts .date {
@@ -471,4 +472,8 @@ input:hover, input:active, textarea:hover, textarea:active, a.submit:hover, a.su
 .gist .gist-data {
   background: white !important;
   background: rgba(255, 255, 255, 0.3) !important;
+}
+
+.wp-caption {
+  margin: 0 auto;
 }

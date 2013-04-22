@@ -213,6 +213,7 @@ h1 {
   clear: both;
   border-top: 1px solid #e6e0d7;
   border-bottom: 1px solid white;
+  height: 0;
 }
 
 .n13-posts .date {
@@ -499,4 +500,8 @@ $footerImageWidth: 200px;
     background: #fff !important;
     background: rgba(255, 255, 255, .3) !important;
   }
+}
+
+.wp-caption {
+  margin: 0 auto;
 }

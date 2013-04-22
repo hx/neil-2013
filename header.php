@@ -23,6 +23,7 @@
 
         ?></title>
     <meta charset="<?php bloginfo('charset'); ?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri() ?>">
     <?php wp_enqueue_script("jquery"); ?>
     <?php wp_head(); ?>
