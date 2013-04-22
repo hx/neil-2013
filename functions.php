@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/lib/class-wp-customize-control-textarea.php';
+require_once dirname(__FILE__) . '/lib/class-wp-customize-control-textarea.php';
 
 class Neil2013 {
 
@@ -102,7 +102,7 @@ class Neil2013 {
 
     public static function renderMetaBox() {
         global $post;
-        $file = __DIR__ . "/admin/{$post->post_type}-meta.php";
+        $file = dirname(__FILE__) . "/admin/{$post->post_type}-meta.php";
         if(is_file($file)) {
             include $file;
         }
