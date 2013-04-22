@@ -5,8 +5,7 @@
 <div class="n13-summary">
     <?php
     $desc = category_description();
-    $cat = get_term_by('name', single_cat_title('', false), 'category');
-    $count = intval($cat->count);
+    $count = intval($wp_query->found_posts);
     $countText = sprintf('%s article%s', $count, $count === 1 ? '' : 's');
     if($desc) {
         printf('%s &nbsp; (%s)', strip_tags($desc), $countText);

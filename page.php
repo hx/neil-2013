@@ -15,7 +15,7 @@
         echo '<div class="n13-posts">';
         $posts = get_posts("category=$includeCat&orderby=date&order=ASC&numberposts=-1");
         foreach($posts as $post) {
-            include __DIR__ . '/post.php';
+            get_template_part('post');
         }
         echo '</div><div class="n13-sep"></div>';
     }

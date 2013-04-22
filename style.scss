@@ -87,6 +87,7 @@ $sidebarWidth:    250px;
 $sidebarPadding:  40px;
 
 $titleColor:      #0b795e;
+$linkHoverColor:  #34b393;
 $subtitleColor:   #5b615d;
 $textColor:       #393939;
 
@@ -187,7 +188,8 @@ h1,
 .n13-comments ul,
 #respond,
 .n13-copyright,
-.n13-page .content
+.n13-page .content,
+.n13-posts-nav
 {
   width: $bodyWidth - $sidebarWidth - $sidebarPadding;
   float: right;
@@ -463,4 +465,38 @@ $footerImageWidth: 200px;
   font-size: 12px;
   padding-top: 12px;
   clear: both;
+}
+
+.n13-posts-nav {
+  height: 2em;
+  a {
+    font-size: .9em;
+    padding: 0 45px;
+    color: $titleColor;
+    @include transition(duration, 300ms);
+    @include transition(property, color);
+
+    &.next-posts {
+      float: left;
+    }
+    &.prev-posts {
+      float: right;
+    }
+    &:hover {
+      color: $linkHoverColor;
+    }
+  }
+}
+
+.gist {
+  font-size: 13px;
+  line-height: 16px;
+  .gist-file {
+    @include border-radius(5px);
+    overflow: hidden;
+  }
+  .gist-data {
+    background: #fff !important;
+    background: rgba(255, 255, 255, .3) !important;
+  }
 }

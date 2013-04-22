@@ -138,7 +138,8 @@ h1,
 .n13-comments ul,
 #respond,
 .n13-copyright,
-.n13-page .content {
+.n13-page .content,
+.n13-posts-nav {
   width: 680px;
   float: right;
 }
@@ -429,4 +430,45 @@ input:hover, input:active, textarea:hover, textarea:active, a.submit:hover, a.su
   font-size: 12px;
   padding-top: 12px;
   clear: both;
+}
+
+.n13-posts-nav {
+  height: 2em;
+}
+.n13-posts-nav a {
+  font-size: .9em;
+  padding: 0 45px;
+  color: #0b795e;
+  -o-transition-duration: 300ms;
+  -webkit-transition-duration: 300ms;
+  -moz-transition-duration: 300ms;
+  transition-duration: 300ms;
+  -o-transition-property: color;
+  -webkit-transition-property: color;
+  -moz-transition-property: color;
+  transition-property: color;
+}
+.n13-posts-nav a.next-posts {
+  float: left;
+}
+.n13-posts-nav a.prev-posts {
+  float: right;
+}
+.n13-posts-nav a:hover {
+  color: #34b393;
+}
+
+.gist {
+  font-size: 13px;
+  line-height: 16px;
+}
+.gist .gist-file {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.gist .gist-data {
+  background: white !important;
+  background: rgba(255, 255, 255, 0.3) !important;
 }

@@ -122,6 +122,14 @@ class Neil2013 {
         add_post_type_support('page', 'excerpt');
     }
 
+    public static function nextPostsLinkAttrs($last) {
+        return $last . ' class="next-posts"';
+    }
+
+    public static function prevPostsLinkAttrs($last) {
+        return $last . ' class="prev-posts"';
+    }
+
 }
 
 add_action('customize_register', array('Neil2013', 'customSettings'));
@@ -134,6 +142,8 @@ add_theme_support('menus');
 register_nav_menu('main-menu', 'Main Sidebar Menu');
 
 add_filter('excerpt_more', array('Neil2013', 'excerptMore'));
+add_filter('next_posts_link_attributes', array('Neil2013', 'nextPostsLinkAttrs'));
+add_filter('previous_posts_link_attributes', array('Neil2013', 'prevPostsLinkAttrs'));
 
 register_sidebar(array(
     'name'          => 'Footer',

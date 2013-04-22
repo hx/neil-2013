@@ -1,14 +1,26 @@
 <div class="n13-posts">
 
-<?php if ( have_posts() ) : ?>
+<?php if (have_posts()) {
 
-    <?php while ( have_posts() ) : the_post(); ?>
+    while (have_posts()) {
+        the_post();
+        get_template_part('post');
+    }
 
-        <?php include __DIR__ . '/post.php' ?>
+    global $wp_query;
 
-    <?php endwhile; ?>
+    if($wp_query->max_num_pages > 1) : ?>
 
-<?php else : ?>
+        <nav class="n13-posts-nav">
+            <?php
+            next_posts_link('&laquo; Older posts');
+            previous_posts_link('Newer posts &raquo;');
+            ?>
+        </nav>
+
+    <?php endif;
+
+} else { ?>
 
     <div class="n13-sep"></div>
 
@@ -20,6 +32,6 @@
         </div>
     </article>
 
-<?php endif; ?>
+<?php } ?>
 
 </div>
