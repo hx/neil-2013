@@ -21,7 +21,7 @@
   $(window).on('resize', fixSidebarBgHeight);
 
   $(function() {
-    var activeClass, activeUri, maxHeight, maxWidth, patterns, submit, validate;
+    var activeClass, activeUri, expandImage, maxHeight, maxWidth, patterns, submit, validate;
 
     $('.n13-body')[0].style.paddingBottom = ($('.n13-footer')[0].offsetHeight + 20) + 'px';
     containerStyle = $('.n13-background')[0].style;
@@ -86,10 +86,9 @@
     $('form').on('submit', validate);
     maxWidth = 680;
     maxHeight = 500;
-    $('.n13-body .wp-caption a img').on('load', function(e) {
-      var a, hiRes, href, img, newHeight, newWidth, originalHeight, originalWidth;
+    expandImage = function(img) {
+      var a, hiRes, href, newHeight, newWidth, originalHeight, originalWidth;
 
-      img = $(e.target);
       a = img.parent();
       href = a.attr('href');
       if (/\.(jpe?g|gif|png|bmp|svg)$/i.exec(href)) {
@@ -112,6 +111,18 @@
         });
         img.parents('.wp-caption').width(newWidth);
         fixSidebarBgHeight();
+      }
+    };
+    $('.n13-body .wp-caption a img').each(function() {
+      var $img;
+
+      $img = $(this);
+      if (this.offsetWidth && this.offsetHeight) {
+        expandImage($img);
+      } else {
+        $img.on('load', function() {
+          return expandImage($img);
+        });
       }
     });
     return fixSidebarBgHeight();

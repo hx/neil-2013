@@ -112,8 +112,7 @@ $ ->
   maxWidth  = 680;
   maxHeight = 500;
 
-  $('.n13-body .wp-caption a img').on 'load', (e) ->
-    img = $(e.target)
+  expandImage = (img) ->
     a = img.parent()
     href = a.attr('href')
     if /\.(jpe?g|gif|png|bmp|svg)$/i.exec(href)
@@ -137,6 +136,13 @@ $ ->
 
     return
 
+  $('.n13-body .wp-caption a img').each ->
+    $img = $(@)
+    if @offsetWidth && @offsetHeight
+      expandImage $img
+    else
+      $img.on 'load', -> expandImage $img
+    return
 
   fixSidebarBgHeight()
 
