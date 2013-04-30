@@ -120,6 +120,7 @@ class Neil2013 {
 
     public static function init() {
         add_post_type_support('page', 'excerpt');
+        self::enqueue_scripts();
     }
 
     public static function nextPostsLinkAttrs($last) {
@@ -128,6 +129,15 @@ class Neil2013 {
 
     public static function prevPostsLinkAttrs($last) {
         return $last . ' class="prev-posts"';
+    }
+
+    private static function enqueue_scripts() {
+        wp_enqueue_script("jquery");
+        $dir = dirname(__FILE__) . '/js';
+        foreach(glob("$dir/*.js") as $script) {
+            $uri = get_template_directory_uri() . '/js/' . basename($script);
+            wp_enqueue_script($uri, $uri);
+        }
     }
 
 }

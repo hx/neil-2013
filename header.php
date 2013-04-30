@@ -25,10 +25,7 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri() ?>">
-    <?php wp_enqueue_script("jquery"); ?>
     <?php wp_head(); ?>
-    <script src="<?php bloginfo('template_url'); ?>/script.js"></script>
-    <script src="<?php bloginfo('template_url') ?>/vendor/jquery.placeholder.min.js"></script>
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->

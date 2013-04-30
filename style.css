@@ -257,6 +257,33 @@ h2, h2 a {
   color: #fff;
   padding-top: 21px;
 }
+.excerpt .headingIndex, .n13-post .content .headingIndex, .n13-page .content .headingIndex {
+  position: fixed;
+  bottom: 10px;
+  background: black;
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #333333;
+  width: 235px;
+  margin-left: -290px;
+}
+.excerpt .headingIndex a, .n13-post .content .headingIndex a, .n13-page .content .headingIndex a {
+  font: 400 italic 16px/1em Lato;
+  color: #777;
+  display: block;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+}
+.excerpt .headingIndex li, .n13-post .content .headingIndex li, .n13-page .content .headingIndex li {
+  position: relative;
+  height: 24px;
+}
+.excerpt .headingIndex ul, .n13-post .content .headingIndex ul, .n13-page .content .headingIndex ul {
+  padding: 9px;
+}
 
 .n13-clear-floats {
   height: 0;

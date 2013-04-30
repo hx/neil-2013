@@ -309,6 +309,37 @@ h2, h2 a {
     color: #fff;
     padding-top: 21px;
   }
+
+  .headingIndex {
+    position: fixed;
+    bottom: 10px;
+    background: black;
+    background: rgba(0, 0, 0, .4);
+    @include border-radius(5px);
+    border: 1px solid #333;
+    width: $sidebarWidth - 15px;
+    margin-left: -$sidebarWidth - $sidebarPadding;
+
+    a {
+      font: 400 italic 16px/1em Lato;
+      color: #777;
+      display: block;
+      position: absolute;
+      top: 4px;
+      right: 4px;
+    }
+
+    li {
+      position: relative;
+      height: 24px;
+    }
+
+    ul {
+      padding: 9px;
+
+    }
+  }
+
 }
 
 .n13-clear-floats {
