@@ -131,6 +131,12 @@ class Neil2013 {
         return $last . ' class="prev-posts"';
     }
 
+    public static function addCharsetToScripts($script) {
+        $pattern = '`' . get_template_directory_uri() . '/js/.*`';
+        $replace = "$0' charset='" . get_bloginfo('charset');
+        return preg_replace($pattern, $replace, $script);
+    }
+
     private static function enqueue_scripts() {
         wp_enqueue_script("jquery");
         $dir = dirname(__FILE__) . '/js';
@@ -154,6 +160,7 @@ register_nav_menu('main-menu', 'Main Sidebar Menu');
 add_filter('excerpt_more', array('Neil2013', 'excerptMore'));
 add_filter('next_posts_link_attributes', array('Neil2013', 'nextPostsLinkAttrs'));
 add_filter('previous_posts_link_attributes', array('Neil2013', 'prevPostsLinkAttrs'));
+add_filter('clean_url', array('Neil2013', 'addCharsetToScripts'));
 
 register_sidebar(array(
     'name'          => 'Footer',

@@ -262,9 +262,9 @@ h2, h2 a {
   bottom: 10px;
   background: black;
   background: rgba(0, 0, 0, 0.4);
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
   border: 1px solid #333333;
   width: 235px;
   margin-left: -290px;
@@ -276,13 +276,41 @@ h2, h2 a {
   position: absolute;
   top: 4px;
   right: 4px;
+  -o-transition-duration: 500ms;
+  -webkit-transition-duration: 500ms;
+  -moz-transition-duration: 500ms;
+  transition-duration: 500ms;
+  -o-transition-property: color;
+  -webkit-transition-property: color;
+  -moz-transition-property: color;
+  transition-property: color;
+}
+.excerpt .headingIndex a:hover, .n13-post .content .headingIndex a:hover, .n13-page .content .headingIndex a:hover {
+  text-decoration: none;
+  color: #fff;
 }
 .excerpt .headingIndex li, .n13-post .content .headingIndex li, .n13-page .content .headingIndex li {
   position: relative;
   height: 24px;
 }
+.excerpt .headingIndex li.active a, .n13-post .content .headingIndex li.active a, .n13-page .content .headingIndex li.active a {
+  color: #d4d4d4;
+}
 .excerpt .headingIndex ul, .n13-post .content .headingIndex ul, .n13-page .content .headingIndex ul {
   padding: 9px;
+}
+.excerpt .headingIndex .arrow, .n13-post .content .headingIndex .arrow, .n13-page .content .headingIndex .arrow {
+  position: absolute;
+  font: 16px/1em "Arial Unicode MS", "Arial Unicode", Arial, sans-serif;
+  color: #3e7645;
+  -o-transition-duration: 300ms;
+  -webkit-transition-duration: 300ms;
+  -moz-transition-duration: 300ms;
+  transition-duration: 300ms;
+  -o-transition-property: top left;
+  -webkit-transition-property: top left;
+  -moz-transition-property: top left;
+  transition-property: top left;
 }
 
 .n13-clear-floats {

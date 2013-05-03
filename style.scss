@@ -315,7 +315,7 @@ h2, h2 a {
     bottom: 10px;
     background: black;
     background: rgba(0, 0, 0, .4);
-    @include border-radius(5px);
+    @include border-radius(7px);
     border: 1px solid #333;
     width: $sidebarWidth - 15px;
     margin-left: -$sidebarWidth - $sidebarPadding;
@@ -327,16 +327,33 @@ h2, h2 a {
       position: absolute;
       top: 4px;
       right: 4px;
+      @include transition(duration, 500ms);
+      @include transition(property, color);
+      &:hover {
+        text-decoration: none;
+        color: #fff;
+      }
     }
 
     li {
       position: relative;
       height: 24px;
+      &.active a {
+        color: #d4d4d4;
+      }
     }
 
     ul {
       padding: 9px;
 
+    }
+
+    .arrow {
+      position: absolute;
+      font: 16px/1em 'Arial Unicode MS', 'Arial Unicode', Arial, sans-serif;
+      color: #3e7645;
+      @include transition(duration, 300ms);
+      @include transition(property, top left);
     }
   }
 
